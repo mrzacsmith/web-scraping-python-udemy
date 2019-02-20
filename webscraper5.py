@@ -1,7 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 
-url = 'https://albuquerque.craigslist.org/search/sof'
+main_url = 'https://albuquerque.craigslist.org/'
+specific_url = 'search/sof'
+url = main_url + specific_url
+
 
 job_count = 0
 while True:  
@@ -30,7 +33,7 @@ while True:
     
     url_tag = soup.find('a', {'title':'next page'})
     if url_tag.get('href'):
-        url = 'https://albuquerque.craigslist.org/' + url_tag.get('href')
+        url = main_url + url_tag.get('href')
         print(url)
     else:
         break
