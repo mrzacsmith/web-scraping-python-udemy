@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
+# Put URL, as example https://albuquerque.craigslist.org/ in main_url and the and the parameters in the specific url
 main_url = 'https://albuquerque.craigslist.org/'
 specific_url = 'search/sof'
 url = main_url + specific_url
