@@ -11,6 +11,9 @@ soup = BeautifulSoup(data, 'html.parser')
 jobs = soup.find_all('p', {'class':'result-info'})
 
 for job in jobs:
-    title = job.find_all('a', {'class':'result-title'})
-    address = job.find_all('span', {'class':'result-hood'})
-    print(title + ': ' + address)
+    title = job.find('a', {'class':'result-title'}).text
+    location_tag = job.find('span', {'class':'result-hood'})
+    location = location_tag.text[2:-1] if location_tag else 'N/A'
+    date = job.find('time', {'class':'result-date'}).text 
+    link = job.find('a', {'class':'result-title'}).get('href')
+    print('Job: ' + title + ' : ' + location + ' : ' + date + "\n" + link + '\n------')
