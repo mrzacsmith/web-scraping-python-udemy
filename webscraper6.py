@@ -52,3 +52,4 @@ print('Job Count: ' + str(job_count))
 npo_jobs_df = pd.DataFrame.from_dict(npo_jobs, orient = 'index', columns = ['Job Title', 'Location', 'Date', 'Link', 'Job Description', 'Job Attributes'])
 
 print(npo_jobs_df.head())
+npo_jobs_df.to_csv('npo_jobs.csv')
